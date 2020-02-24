@@ -19,7 +19,7 @@ public class RAGCoreCommand extends Command {
                     "&e by &6" +
                     BungeeCord.plugin.getDescription().getAuthor(), sender, true);
             if(!sender.hasPermission("ragcore.help")) {
-                Chat.send("&7/mbc reload &f- &eReloads this plugin", sender, true);
+                Chat.send("&7/ragc reload &f- &eReloads this plugin", sender, true);
             }
         } else {
             if (!sender.hasPermission("ragcore.reload")) {
