@@ -1,0 +1,23 @@
+########################################
+#                RAGCore               #
+#                                      #
+#               created by             #
+#              TheDarkSword            #
+#                                      #
+########################################
+
+#Set this to true to enable the debug mode
+debug-mode: false
+#Set this to true to enable MySQL query logging
+query-logging: false
+#This value (1 or 2) indicates how much logs you want to see
+log-leve: 1
+#This is the default value in seconds for the timeout in a socket connection. Usually this is overridden by the plugins.
+#0 Means no timeout.
+#At the moment it doesn't work
+socket-timeout: 0
+
+messages:
+  insufficent-perms: "&4Insufficient permissions!"
+  plugin-reload: "&2RAGCore successfully reloaded!"
+  incorrect-usage: "&cIncorrect usage! Use the command like this: &e{command}"

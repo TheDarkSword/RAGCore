@@ -1,0 +1,10 @@
+name: RAGCore
+version: 1.0.0
+author: TheDarkSword
+main: it.revarmygaming.core.Spigot
+description: This plugin is needed by all the plugin developed with RAGCore-api
+
+commands:
+  ragcore:
+    aliases: [ragc]
+    description: Main command of the plugin

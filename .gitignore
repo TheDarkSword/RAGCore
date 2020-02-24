@@ -1,0 +1,5 @@
+# Project exclude paths
+/bungeecord-api/target/
+/common-api/target/
+/plugin/target/
+/spigot-api/target/
