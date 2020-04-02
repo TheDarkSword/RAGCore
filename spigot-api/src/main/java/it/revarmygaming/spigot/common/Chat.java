@@ -101,6 +101,16 @@ public class Chat {
     }
 
     /**
+     * Sends a message to a command sender.
+     *
+     * @param msg       the message
+     * @param receiver  the receiver
+     */
+    public static void send(String msg, CommandSender receiver) {
+        send(msg, receiver, false);
+    }
+
+    /**
      * Sends a message to a player.
      *
      * @param msg       the message

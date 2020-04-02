@@ -3,7 +3,6 @@ package it.revarmygaming.core;
 import it.revarmygaming.commonapi.Reference;
 import it.revarmygaming.commonapi.yaml.Configuration;
 import it.revarmygaming.core.bungeecord.RAGCoreCommand;
-import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -38,6 +37,11 @@ public class BungeeCord extends Plugin {
         }
 
         getProxy().getPluginManager().registerCommand(this, new RAGCoreCommand());
+    }
+
+    @Override
+    public void onDisable() {
+
     }
 
     @Nullable

@@ -1,5 +1,5 @@
 name: RAGCore
-version: 1.0.0
+version: 1.0.3
 author: TheDarkSword
 main: it.revarmygaming.core.BungeeCord
 description: This plugin is needed by all the plugin developed with MBCore-api

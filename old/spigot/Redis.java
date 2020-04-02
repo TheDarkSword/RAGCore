@@ -1,15 +1,16 @@
-package it.revarmygaming.bungeecord.redis;
+package it.revarmygaming.spigot.redis;
 
-import it.revarmygaming.bungeecord.common.Chat;
 import it.revarmygaming.commonapi.Reference;
 import it.revarmygaming.commonapi.redis.RedisMessage;
 import it.revarmygaming.commonapi.redis.Subscriber;
-import net.md_5.bungee.api.plugin.Plugin;
+import it.revarmygaming.spigot.common.Chat;
+import org.bukkit.plugin.Plugin;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 import java.io.*;
+import java.util.Base64;
 import java.util.HashMap;
 
 public class Redis {
@@ -79,6 +80,17 @@ public class Redis {
     }
 
     /**
+     * Close the connection with the redis network.
+     */
+    public final void close() {
+        unregisterSubscribers();
+        rxRedis.getClient().close();
+        rxRedis.close();
+        txRedis.getClient().close();
+        txRedis.close();
+    }
+
+    /**
      * Register a {@link Subscriber} for one or more channel/s.
      *
      * @param subscriber the {@link Subscriber} class
@@ -88,10 +100,10 @@ public class Redis {
         for(String channel : channels) {
             Thread thread = new Thread(() -> {
                 try {
-                    Chat.getLogger("&7[MBC] &b" + plugin.getDescription().getName() + "&3 subscribing to Redis channel &b" + channel + "&3.");
+                    Chat.getLogger("&7[RAGC] &b" + plugin.getName() + "&3 subscribing to Redis channel &b" + channel + "&3.");
                     rxRedis.subscribe(subscriber, channel);
                 } catch (Exception e) {
-                    if(Reference.logLevel >= 1) Chat.getLogger("&7[MBC] &4" + plugin.getDescription().getName() + " caught an exception: " + e.getMessage() + "!", "severe");
+                    if(Reference.logLevel >= 1) Chat.getLogger("&7[RAGC] &4" + plugin.getName() + " caught an exception: " + e.getMessage() + "!", "severe");
                     if(Reference.debug) e.printStackTrace();
                 }
             });
@@ -108,6 +120,7 @@ public class Redis {
     public final void unregisterSubscriber(String channel) {
         running.get(channel).interrupt();
         running.remove(channel);
+        rxRedis.getClient().unsubscribe(channel);
     }
 
     /**
@@ -137,7 +150,7 @@ public class Redis {
         try {
             txRedis.publish(channel, serialize(message));
         } catch (IOException e) {
-            if(Reference.logLevel >= 1) Chat.getLogger("&7[MBC] &4" + plugin.getDescription().getName() + " caught an exception: " + e.getMessage() + "!", "severe");
+            if(Reference.logLevel >= 1) Chat.getLogger("&7[RAGC] &4" + plugin.getName() + " caught an exception: " + e.getMessage() + "!", "severe");
             if(Reference.debug) e.printStackTrace();
         }
     }
@@ -156,7 +169,7 @@ public class Redis {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
         objectOutputStream.writeObject(object);
         objectOutputStream.flush();
-        return byteArrayOutputStream.toString();
+        return Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
     }
 
     /**
@@ -168,7 +181,7 @@ public class Redis {
      * @throws ClassNotFoundException
      */
     public static Object deserialize(String serializedMsg) throws IOException, ClassNotFoundException {
-        byte[] bytes = serializedMsg.getBytes();
+        byte[] bytes = Base64.getDecoder().decode(serializedMsg.getBytes());
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
         ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
         return objectInputStream.readObject();

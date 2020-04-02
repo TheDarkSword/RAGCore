@@ -7,7 +7,7 @@
     <groupId>it.revarmygaming.core</groupId>
     <artifactId>RAGCore</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>1.4</version>
 
     <build>
         <plugins>

@@ -1,46 +1,59 @@
 package it.revarmygaming.commonapi.redis;
 
+import it.revarmygaming.commonapi.redis.messanger.OutgoingMessage;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Base64;
+import java.util.UUID;
 
-public class RedisMessage implements Serializable {
+public class RedisMessage implements OutgoingMessage, Serializable {
 
-    private String source;
-    private String destination;
-    private String dataType;
+    private UUID id;
+    private String action;
     private Object data;
+    private String dataType;
 
-    public RedisMessage(String source, String destination, Object data) {
-        this.source = source;
-        this.destination = destination;
+    public RedisMessage(String action, Object data){
+        id = UUID.randomUUID();
+        this.action = action;
         this.data = data;
-        this.dataType = data.getClass().getName();
+        dataType = data.getClass().getName();
     }
 
-    /**
-     * Return the source name.
-     */
-    public String getSource() {
-        return source;
+    @Override
+    public UUID getId() {
+        return id;
     }
 
-    /**
-     * Return the destination name.
-     */
-    public String getDestination() {
-        return destination;
+    @Override
+    public String getAction() {
+        return action;
     }
 
-    /**
-     * Return the class name of the data contained in this packet.
-     */
+    @Override
+    public Object getData(){
+        return data;
+    }
+
+    @Override
     public String getDataType() {
         return dataType;
     }
 
-    /**
-     * Return the data contained in this message.
-     */
-    public Object getData() {
-        return data;
+    @Override
+    public String asEncodedString() {
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(this);
+            objectOutputStream.flush();
+            return Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -5,7 +5,9 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Chat {
 
@@ -22,19 +24,14 @@ public class Chat {
     }
 
     /**
-     * Converts a raw string with color codes to a colored string
-     * if the player has one of the permissions.
+     * Converts a string list with color codes to a colored string list.
      *
-     * @param msg         the raw string
-     * @param sender      the player to check
-     * @param permissions the permissions to check
-     * @return if true: the colored string, if false: the raw string
+     * @param msg the string list
+     * @return the colored string list
      */
-    public static String getTranslated(String msg, ProxiedPlayer sender, String... permissions) {
-        for(String perm : permissions) {
-            if(sender.hasPermission(perm)) return getTranslated(msg);
-        }
-        return msg;
+    public static List<String> getTranslated(List<String> msg) {
+        return msg.stream().map(var -> ChatColor.translateAlternateColorCodes('§', var))
+                .map(var -> ChatColor.translateAlternateColorCodes('&', var)).collect(Collectors.toList());
     }
 
     /**
@@ -47,8 +44,23 @@ public class Chat {
      * @return if true: the colored string, if false: the raw string
      */
     public static String getTranslated(String msg, CommandSender sender, String... permissions) {
-        if(sender instanceof ProxiedPlayer) return getTranslated(msg, (ProxiedPlayer) sender, permissions);
-        return getTranslated(msg);
+        return getTranslated(msg, sender, permissions);
+    }
+
+    /**
+     * Converts a raw string with color codes to a colored string
+     * if the player has one of the permissions.
+     *
+     * @param msg         the raw string
+     * @param sender      the command sender to check
+     * @param permissions the permissions to check
+     * @return if true: the colored string, if false: the raw string
+     */
+    public static List<String> getTranslated(List<String> msg, CommandSender sender, String... permissions) {
+        for(String perm : permissions) {
+            if(sender.hasPermission(perm)) return getTranslated(msg);
+        }
+        return msg;
     }
 
     /**
@@ -84,6 +96,16 @@ public class Chat {
      */
     public static String builder(String[] args) {
         return builder(args, 0);
+    }
+
+    /**
+     * Sends a message to a command sender.
+     *
+     * @param msg       the message
+     * @param receiver  the receiver
+     */
+    public static void send(String msg, CommandSender receiver) {
+        send(msg, receiver, false);
     }
 
     /**

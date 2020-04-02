@@ -142,6 +142,9 @@ public final class Configuration {
         if (defaultIS == null)
             throw new IOException("Configuration need to be initialized with the input stream of a default configuration file to use the create method");
 
+        File folder = configFile.getAbsoluteFile().getParentFile();
+        if(!folder.exists()) folder.mkdir();
+
         Files.copy(defaultIS, configFile.toPath());
     }
 
