@@ -9,14 +9,14 @@ import java.io.Serializable;
 import java.util.Base64;
 import java.util.UUID;
 
-public class RedisMessage implements OutgoingMessage, Serializable {
+public class RedisMessage implements OutgoingMessage {
 
-    private UUID id;
-    private String action;
-    private Object data;
-    private String dataType;
+    private final UUID id;
+    private final String action;
+    private final Serializable data;
+    private final String dataType;
 
-    public RedisMessage(String action, Object data){
+    public RedisMessage(String action, Serializable data){
         id = UUID.randomUUID();
         this.action = action;
         this.data = data;
@@ -41,19 +41,5 @@ public class RedisMessage implements OutgoingMessage, Serializable {
     @Override
     public String getDataType() {
         return dataType;
-    }
-
-    @Override
-    public String asEncodedString() {
-        try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            objectOutputStream.writeObject(this);
-            objectOutputStream.flush();
-            return Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

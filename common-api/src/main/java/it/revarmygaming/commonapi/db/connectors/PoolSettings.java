@@ -11,9 +11,9 @@ public class PoolSettings {
     private int minimumIdle = 5;
     private long initializationFailTimeout = 10000;
     private long connectionTimeout = 30000;
-    private long idleTimeout = 3600000;
-    private long maxLifetime = 3600000;
-    private long leakDetectionThreshold = 2000;
+    private long idleTimeout = 100000;
+    private long maxLifetime = 900000;
+    private long leakDetectionThreshold = 60000;
     private HashMap<String, String> dataSourceProperties = new HashMap<>();
     private HashMap<String, String> healthCheckProperties = new HashMap<>();
 

@@ -1,11 +1,12 @@
 package it.revarmygaming.commonapi.redis.messanger;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
  * Represents a message sent received via a {@link Messenger}.
  */
-public interface Message {
+public interface Message extends Serializable {
 
     /**
      * Gets the unique id associated with this message.

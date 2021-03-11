@@ -1,5 +1,8 @@
 package it.revarmygaming.commonapi.redis.messanger;
 
+import java.io.*;
+import java.util.Base64;
+
 /**
  * Represents an object which dispatches {@link OutgoingMessage}s.
  */
@@ -28,5 +31,12 @@ public interface Messenger extends AutoCloseable {
     @Override
     default void close() {
 
+    }
+
+    default Message deserialize(String encodedString) throws IOException, ClassNotFoundException {
+        byte[] bytes = Base64.getDecoder().decode(encodedString.getBytes());
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+        ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+        return (Message) objectInputStream.readObject();
     }
 }

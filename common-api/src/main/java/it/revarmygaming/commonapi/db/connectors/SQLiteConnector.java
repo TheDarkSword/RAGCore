@@ -31,6 +31,7 @@ public class SQLiteConnector implements Connector {
             throw new SQLException(e);
         }
 
+        //return org.sqlite.JDBC.createConnection("jdbc:sqlite:" + database, new java.util.Properties());
         return DriverManager.getConnection("jdbc:sqlite:" + database);
     }
 

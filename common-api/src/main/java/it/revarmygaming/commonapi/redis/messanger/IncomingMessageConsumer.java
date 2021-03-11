@@ -1,5 +1,10 @@
 package it.revarmygaming.commonapi.redis.messanger;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.Base64;
+
 /**
  * Encapsulates the LuckPerms system which accepts incoming {@link Message}s
  * from implementations of {@link Messenger}.
@@ -43,4 +48,10 @@ public interface IncomingMessageConsumer {
      */
     boolean consumeIncomingMessageAsString(String encodedString);
 
+    default Message deserialize(String encodedString) throws IOException, ClassNotFoundException {
+        byte[] bytes = Base64.getDecoder().decode(encodedString.getBytes());
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+        ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+        return (Message) objectInputStream.readObject();
+    }
 }

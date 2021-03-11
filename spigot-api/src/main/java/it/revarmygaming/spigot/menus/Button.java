@@ -6,8 +6,8 @@ import org.bukkit.inventory.ItemStack;
 
 public abstract class Button {
 
-    private final ItemStack item;
-    private final int slot;
+    private ItemStack item;
+    private int slot;
 
     public Button(ItemStack item, int slot) {
         this.item = item;
@@ -20,7 +20,15 @@ public abstract class Button {
         return item;
     }
 
+    public void setItem(ItemStack item) {
+        this.item = item;
+    }
+
     public int getSlot() {
         return slot;
+    }
+
+    public void setSlot(int slot) {
+        this.slot = slot;
     }
 }

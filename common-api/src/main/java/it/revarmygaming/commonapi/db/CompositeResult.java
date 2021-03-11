@@ -2,6 +2,7 @@ package it.revarmygaming.commonapi.db;
 
 import java.io.InputStream;
 import java.sql.*;
+import java.util.UUID;
 
 public class CompositeResult {
 
@@ -162,6 +163,14 @@ public class CompositeResult {
 
     public Time getTime(String columnLabel) throws SQLException {
         return result.getTime(columnLabel);
+    }
+
+    public UUID getUUID(String columnLabel) throws SQLException {
+        try {
+            return UUID.fromString(result.getString(columnLabel));
+        } catch (NullPointerException | IllegalArgumentException e) {
+            throw new SQLException(e.getMessage(), e);
+        }
     }
 
     public Timestamp getTimestamp(String columnLabel) throws SQLException {

@@ -6,7 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common-api" />
+        <module name="spigot-api" />
         <module name="plugin" />
+        <module name="bungeecord-api" />
         <module name="bungeecordapi" />
         <module name="commonapi" />
         <module name="spigotapi" />

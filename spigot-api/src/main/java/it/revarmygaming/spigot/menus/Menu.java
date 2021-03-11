@@ -47,7 +47,7 @@ public abstract class Menu {
         Inventory inventory = Bukkit.createInventory(null, rows*9, title);
         buttons.forEach(button -> inventory.setItem(button.getSlot(), button.getItem()));
 
-        onOpen(player);
+        onOpen(player, inventory);
 
         player.openInventory(inventory);
         player.setMetadata(INVENTORY_META, new FixedMetadataValue(plugin, this));
@@ -78,7 +78,7 @@ public abstract class Menu {
 
     public abstract void onClose(Player player);
     public abstract void onPreOpen(Player player);
-    public abstract void onOpen(Player player);
+    public abstract void onOpen(Player player, Inventory inventory);
 
     public Plugin getPlugin() {
         return plugin;

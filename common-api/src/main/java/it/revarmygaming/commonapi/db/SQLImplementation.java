@@ -36,10 +36,19 @@ class SQLImplementation implements SQL {
     }
 
     /**
-     * Terminates the connection pool.
+     * Terminates the connection with the database.
      */
     public void shutdown() {
         connector.shutdown();
+    }
+
+
+    /**
+     * Restart the connection with the database.
+     */
+    public void reset() throws SQLException {
+        connector.shutdown();
+        connector.connect();
     }
 
     /**

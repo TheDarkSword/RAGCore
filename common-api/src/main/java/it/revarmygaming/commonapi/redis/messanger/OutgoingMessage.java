@@ -1,5 +1,10 @@
 package it.revarmygaming.commonapi.redis.messanger;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.Base64;
+
 /**
  * Represents an outgoing {@link Message}.
  *
@@ -25,6 +30,11 @@ public interface OutgoingMessage extends Message {
      *
      * @return an encoded string form of the message
      */
-    String asEncodedString();
-
+    default String asEncodedString(Message message) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+        objectOutputStream.writeObject(this);
+        objectOutputStream.flush();
+        return Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+    }
 }
