@@ -39,7 +39,8 @@ Add the dependency to your project using maven:
     <version>2.0</version>
 </dependency>
 ```
-Modules are: common-api, spigot-api, bungeecord-api, velocity-api
+- Modules are: common-api, spigot-api, bungeecord-api, velocity-api
+
 You can also download the plugin from [here](https://repo1.maven.org/maven2/it/revarmygaming/ragcore/plugin/2.0/plugin-2.0.jar) and import it as a library.
 
 ## Contributing
