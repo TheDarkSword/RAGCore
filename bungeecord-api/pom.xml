@@ -4,13 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>RAGCore</artifactId>
-        <groupId>it.revarmygaming.core</groupId>
+        <groupId>it.revarmygaming.ragcore</groupId>
         <version>2.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bungeecord-api</artifactId>
+    <packaging>jar</packaging>
 
     <name>RAGCore-BungeeCord</name>
     <description>Simple Library to make Minecraft Plugin easly</description>
@@ -47,11 +48,11 @@
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 
@@ -113,7 +114,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <nexusUrl>https://s01.oss.sonatype.org</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
@@ -143,7 +144,7 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>it.revarmygaming.core</groupId>
+            <groupId>it.revarmygaming.ragcore</groupId>
             <artifactId>common-api</artifactId>
             <version>2.0</version>
             <scope>compile</scope>
