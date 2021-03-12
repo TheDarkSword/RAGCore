@@ -9,9 +9,6 @@ import java.util.stream.Collectors;
 
 public class Chat {
 
-    private static final char COLOR_CHAR = '\u00A7';
-    private static final String ALL_CODES = "0123456789AaBbCcDdEeFfKkLlMmNnOoRr";
-
     /**
      * Converts a raw string with color codes to a colored string.
      *
