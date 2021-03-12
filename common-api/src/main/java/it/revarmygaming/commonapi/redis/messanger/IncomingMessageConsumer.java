@@ -31,7 +31,7 @@ public interface IncomingMessageConsumer {
      * Consumes a message in an encoded string format.
      *
      * <p>This method will decode strings obtained by calling
-     * {@link OutgoingMessage#asEncodedString()}. This means that basic
+     * {@link OutgoingMessage#asEncodedString(Message)}. This means that basic
      * implementations can successfully implement {@link Messenger} without
      * providing their own serialisation.</p>
      *

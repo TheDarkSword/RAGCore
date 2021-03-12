@@ -28,7 +28,7 @@ public class CompositeResult {
     /**
      * Return the query sent to database.
      *
-     * @return
+     * @return String
      */
     public String getQuery() {
         return query;

@@ -158,6 +158,7 @@ public final class Configuration {
     /**
      * Loads the configuration into this class
      *
+     * @param timeout How many times method try to load the config
      * @throws IOException IOException when the file is null or the file loading fails
      */
     @SuppressWarnings("unchecked")

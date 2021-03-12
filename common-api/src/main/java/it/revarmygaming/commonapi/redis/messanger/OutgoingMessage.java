@@ -28,6 +28,9 @@ public interface OutgoingMessage extends Message {
      * pass on the message on the "other side" using
      * {@link IncomingMessageConsumer#consumeIncomingMessageAsString(String)}.</p>
      *
+     * @param message is the message that will be sent
+     *
+     * @throws IOException throws from java.io.ObjectOutputStream
      * @return an encoded string form of the message
      */
     default String asEncodedString(Message message) throws IOException {

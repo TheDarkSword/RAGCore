@@ -45,6 +45,8 @@ class SQLImplementation implements SQL {
 
     /**
      * Restart the connection with the database.
+     *
+     * @throws SQLException on error when shutdown or connecting
      */
     public void reset() throws SQLException {
         connector.shutdown();
@@ -1556,6 +1558,7 @@ class SQLImplementation implements SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Boolean
      */
     public Boolean getLastBoolean(@NotNull String[] columns, Object[] values, @NotNull String search) throws SQLException {
         List<Boolean> list = getList(columns, values, search, Boolean.class);
@@ -1569,6 +1572,7 @@ class SQLImplementation implements SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Boolean
      */
     public Boolean getLastBoolean(@NotNull String column, Object value, @NotNull String search) throws SQLException {
         return getLastBoolean(new String[]{column}, new Object[]{value}, search);

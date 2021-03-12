@@ -105,6 +105,7 @@ interface SQL {
      * @param columns the list of columns for the research
      * @param values  the list of values to be searched in the columns
      * @throws SQLException SQLException
+     * @return boolean
      */
     boolean lineExists(String[] columns, Object[] values) throws SQLException;
 
@@ -114,6 +115,7 @@ interface SQL {
      * @param column the column for the research
      * @param value  the value to be searched in the column
      * @throws SQLException SQLException
+     * @return boolean
      */
     boolean lineExists(String column, Object value) throws SQLException;
 
@@ -125,6 +127,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Byte
      */
     Byte getByte(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -135,6 +138,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Byte
      */
     Byte getByte(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -146,6 +150,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Byte
      */
     Byte getByte(String column, Object value, String search, int row) throws SQLException;
 
@@ -156,6 +161,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Byte
      */
     Byte getByte(String column, Object value, String search) throws SQLException;
 
@@ -167,6 +173,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Short
      */
     Short getShort(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -177,6 +184,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Short
      */
     Short getShort(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -188,6 +196,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Short
      */
     Short getShort(String column, Object value, String search, int row) throws SQLException;
 
@@ -198,6 +207,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Short
      */
     Short getShort(String column, Object value, String search) throws SQLException;
 
@@ -209,6 +219,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Integer
      */
     Integer getInteger(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -219,6 +230,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Integer
      */
     Integer getInteger(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -230,6 +242,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Integer
      */
     Integer getInteger(String column, Object value, String search, int row) throws SQLException;
 
@@ -240,6 +253,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Integer
      */
     Integer getInteger(String column, Object value, String search) throws SQLException;
 
@@ -251,6 +265,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Long
      */
     Long getLong(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -261,6 +276,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Long
      */
     Long getLong(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -272,6 +288,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Long
      */
     Long getLong(String column, Object value, String search, int row) throws SQLException;
 
@@ -282,6 +299,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Long
      */
     Long getLong(String column, Object value, String search) throws SQLException;
 
@@ -293,6 +311,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Float
      */
     Float getFloat(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -303,6 +322,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Float
      */
     Float getFloat(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -314,6 +334,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Float
      */
     Float getFloat(String column, Object value, String search, int row) throws SQLException;
 
@@ -324,6 +345,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Float
      */
     Float getFloat(String column, Object value, String search) throws SQLException;
 
@@ -335,6 +357,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Double
      */
     Double getDouble(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -345,6 +368,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Double
      */
     Double getDouble(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -356,6 +380,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Double
      */
     Double getDouble(String column, Object value, String search, int row) throws SQLException;
 
@@ -366,6 +391,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Double
      */
     Double getDouble(String column, Object value, String search) throws SQLException;
 
@@ -377,6 +403,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return String
      */
     String getString(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -387,6 +414,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return String
      */
     String getString(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -398,6 +426,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return String
      */
     String getString(String column, Object value, String search, int row) throws SQLException;
 
@@ -408,6 +437,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return String
      */
     String getString(String column, Object value, String search) throws SQLException;
 
@@ -419,6 +449,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Boolean
      */
     Boolean getBoolean(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -429,6 +460,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Boolean
      */
     Boolean getBoolean(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -440,6 +472,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Boolean
      */
     Boolean getBoolean(String column, Object value, String search, int row) throws SQLException;
 
@@ -450,6 +483,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Boolean
      */
     Boolean getBoolean(String column, Object value, String search) throws SQLException;
 
@@ -461,6 +495,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Timestamp
      */
     Timestamp getTimestamp(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -471,6 +506,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Timestamp
      */
     Timestamp getTimestamp(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -482,6 +518,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Timestamp
      */
     Timestamp getTimestamp(String column, Object value, String search, int row) throws SQLException;
 
@@ -492,6 +529,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Timestamp
      */
     Timestamp getTimestamp(String column, Object value, String search) throws SQLException;
 
@@ -503,6 +541,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Date
      */
     Date getDate(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -513,6 +552,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Date
      */
     Date getDate(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -524,6 +564,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Date
      */
     Date getDate(String column, Object value, String search, int row) throws SQLException;
 
@@ -534,6 +575,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Date
      */
     Date getDate(String column, Object value, String search) throws SQLException;
 
@@ -545,6 +587,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Time
      */
     Time getTime(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -555,6 +598,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Time
      */
     Time getTime(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -566,6 +610,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Time
      */
     Time getTime(String column, Object value, String search, int row) throws SQLException;
 
@@ -576,6 +621,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Time
      */
     Time getTime(String column, Object value, String search) throws SQLException;
 
@@ -587,6 +633,7 @@ interface SQL {
      * @param search  the name of the column whose value is wanted
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Object
      */
     Object getObject(String[] columns, Object[] values, String search, int row) throws SQLException;
 
@@ -597,6 +644,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Object
      */
     Object getObject(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -608,6 +656,7 @@ interface SQL {
      * @param search the name of the column whose value is wanted
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return Object
      */
     Object getObject(String column, Object value, String search, int row) throws SQLException;
 
@@ -618,74 +667,87 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Object
      */
     Object getObject(String column, Object value, String search) throws SQLException;
 
     /**
      * Gets a T object from the database.
      *
+     * @param <T> custom type
      * @param columns the list of columns for the research
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @param type    the type of the object you want to get
      * @param row     if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return T
      */
     <T> T getObject(String[] columns, Object[] values, String search, Class<T> type, int row) throws SQLException;
 
     /**
      * Gets a T object from the database.
      *
+     * @param <T> custom type
      * @param columns the list of columns for the research
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @param type    the type of the object you want to get
      * @throws SQLException SQLException
+     * @return T
      */
     <T> T getObject(String[] columns, Object[] values, String search, Class<T> type) throws SQLException;
 
     /**
      * Gets a T object from the database.
      *
+     * @param <T> custom type
      * @param column the column for the research
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @param type   the type of the object you want to get
      * @param row    if the research has more than one results, this is the number of the result you want (starts from 1)
      * @throws SQLException SQLException
+     * @return T
      */
     <T> T getObject(String column, Object value, String search, Class<T> type, int row) throws SQLException;
 
     /**
      * Gets a T object from the database.
      *
+     * @param <T> custom type
      * @param column the column for the research
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @param type   the type of the object you want to get
      * @throws SQLException SQLException
+     * @return T
      */
     <T> T getObject(String column, Object value, String search, Class<T> type) throws SQLException;
 
     /**
      * Gets a ArrayList of Object from the database.
      *
+     * @param <T> custom type
      * @param columns the list of columns for the research
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @param type    the type of the ArrayList
      * @throws SQLException SQLException | ClassCastException
+     * @return List
      */
     <T> List<T> getList(String[] columns, Object[] values, String search, Class<T> type) throws SQLException;
 
     /**
      * Gets a ArrayList of Object from the database.
      *
+     * @param <T> custom type
      * @param column the column for the research
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @param type   the type of the ArrayList
      * @throws SQLException SQLException | ClassCastException
+     * @return List
      */
     <T> List<T> getList(String column, Object value, String search, Class<T> type) throws SQLException;
 
@@ -696,6 +758,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException | ClassCastException
+     * @return Byte
      */
     Byte getLastByte(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -706,6 +769,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Byte
      */
     Byte getLastByte(String column, Object value, String search) throws SQLException;
 
@@ -716,6 +780,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException | ClassCastException
+     * @return Short
      */
     Short getLastShort(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -726,6 +791,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Short
      */
     Short getLastShort(String column, Object value, String search) throws SQLException;
 
@@ -736,6 +802,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Integer
      */
     Integer getLastInteger(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -746,6 +813,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Integer
      */
     Integer getLastInteger(String column, Object value, String search) throws SQLException;
 
@@ -756,6 +824,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Long
      */
     Long getLastLong(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -766,6 +835,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Long
      */
     Long getLastLong(String column, Object value, String search) throws SQLException;
 
@@ -776,6 +846,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Float
      */
     Float getLastFloat(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -786,6 +857,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Float
      */
     Float getLastFloat(String column, Object value, String search) throws SQLException;
 
@@ -796,6 +868,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Double
      */
     Double getLastDouble(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -806,6 +879,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Double
      */
     Double getLastDouble(String column, Object value, String search) throws SQLException;
 
@@ -816,6 +890,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return String
      */
     String getLastString(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -826,6 +901,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return String
      */
     String getLastString(String column, Object value, String search) throws SQLException;
 
@@ -836,6 +912,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Timestamp
      */
     Timestamp getLastTimestamp(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -846,6 +923,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Timestamp
      */
     Timestamp getLastTimestamp(String column, Object value, String search) throws SQLException;
 
@@ -856,6 +934,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException | ClassCastException
+     * @return Date
      */
     Date getLastDate(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -866,6 +945,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Date
      */
     Date getLastDate(String column, Object value, String search) throws SQLException;
 
@@ -876,6 +956,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException | ClassCastException
+     * @return Time
      */
     Time getLastTime(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -886,6 +967,7 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Time
      */
     Time getLastTime(String column, Object value, String search) throws SQLException;
 
@@ -896,6 +978,7 @@ interface SQL {
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Object
      */
     Object getLastObject(String[] columns, Object[] values, String search) throws SQLException;
 
@@ -906,28 +989,33 @@ interface SQL {
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @throws SQLException SQLException
+     * @return Object
      */
     Object getLastObject(String column, Object value, String search) throws SQLException;
 
     /**
      * Gets the last T object from the database.
      *
+     * @param <T> custom type
      * @param columns the list of columns for the research
      * @param values  the list of values to be searched in the columns
      * @param search  the name of the column whose value is wanted
      * @param type    the type of the object you want to get
      * @throws SQLException SQLException
+     * @return T
      */
     <T> T getLastObject(String[] columns, Object[] values, String search, Class<T> type) throws SQLException;
 
     /**
      * Gets the last T object from the database.
      *
+     * @param <T> custom type
      * @param column the column for the research
      * @param value  the value to be searched in the column
      * @param search the name of the column whose value is wanted
      * @param type   the type of the object you want to get
      * @throws SQLException SQLException
+     * @return T
      */
     <T> T getLastObject(String column, Object value, String search, Class<T> type) throws SQLException;
 
