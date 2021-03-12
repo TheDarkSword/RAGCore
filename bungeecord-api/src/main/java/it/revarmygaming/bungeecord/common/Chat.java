@@ -5,6 +5,7 @@ import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.chat.ComponentSerializer;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,7 +45,10 @@ public class Chat {
      * @return if true: the colored string, if false: the raw string
      */
     public static String getTranslated(String msg, CommandSender sender, String... permissions) {
-        return getTranslated(msg, sender, permissions);
+        for(String perm : permissions) {
+            if(sender.hasPermission(perm)) return getTranslated(msg);
+        }
+        return msg;
     }
 
     /**
