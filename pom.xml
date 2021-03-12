@@ -7,7 +7,7 @@
     <groupId>it.revarmygaming.core</groupId>
     <artifactId>RAGCore</artifactId>
     <packaging>pom</packaging>
-    <version>1.4</version>
+    <version>2.0</version>
 
     <build>
         <plugins>
@@ -27,5 +27,6 @@
         <module>bungeecord-api</module>
         <module>spigot-api</module>
         <module>plugin</module>
+        <module>velocity-api</module>
     </modules>
 </project>
