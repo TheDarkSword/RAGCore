@@ -12,10 +12,48 @@
 
     <artifactId>velocity-api</artifactId>
 
+    <name>RAGCore-Velocity</name>
+    <description>Simple Library to make Minecraft Plugin easly</description>
+    <url>https://github.com/TheDarkSword/RAGCore</url>
+
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+    <licenses>
+        <license>
+            <name>The BSD 3-Clause License</name>
+            <url>http://opensource.org/licenses/BSD-3-Clause</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>TheDarkSword</id>
+            <name>Michele Giacalone</name>
+            <url>https://github.com/TheDarkSword</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:TheDarkSword/RAGCore.git</connection>
+        <developerConnection>scm:git:git@github.com:TheDarkSword/RAGCore.git</developerConnection>
+        <url>git@github.com:TheDarkSword/RAGCore</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
     <repositories>
         <repository>
